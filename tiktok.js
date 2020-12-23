@@ -68,7 +68,7 @@ ui.layout(
     <drawer id="drawer">
         <vertical>
             <appbar>
-                <toolbar id="toolbar" title="老黑脚本" />
+                <toolbar id="toolbar" title="TikTok辅助" />
                 
             </appbar>
             <viewpager id="viewpager">
