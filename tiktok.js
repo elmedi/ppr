@@ -609,89 +609,6 @@ function 还原模式() {
                     log("采集粉丝信息")
                     采集粉丝信息()
                 }
-              
-
-                
-                
-                
-                
-                
-                    
-                
-                
-                
-
-                
-                
-                
-                
-                
-                
-                
-
-                
-                
-                    
-                
-                
-                
-                
-                
-
-                
-                
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
                 
             } else {
                 序号 = xx("获取当前环境名称")
@@ -1855,18 +1772,14 @@ function getFansList(fansNameList, fansList, all) {
                     
                     console.info("互相关注：", follow.click())
                 }
-
                 
                 if(fansNameList.indexOf(username)<0){
 
-                    
                     if(f.click()){
                         
                         closeTag = 0;
-
                         
                         getFansInfo(username);
-
                         
                         for (var i = 0; i < 5; i++) {
                             sleep(1000)
@@ -1881,7 +1794,6 @@ function getFansList(fansNameList, fansList, all) {
                             ) break
                             else back()
                         }
-
                         
                         countGetFansNum++;
                         getFansNum++;
@@ -2001,7 +1913,6 @@ function getFansInfo(usernameP,mainTag) {
         if(!mainTag){
             
             sleep(300);
-
             
             let temp = 更多.parent().children();
             temp.forEach(uo => {
@@ -2018,7 +1929,6 @@ function getFansInfo(usernameP,mainTag) {
         fansNumber = getNum("Followers");
         likeNumber = getNum("Likes");
         if(likeNumber == -1) likeNumber = getNum("Like");
-
         
         let nodeUO = text("Following").findOne(1000) || text("Followers").findOne(1000) || text("Likes").findOne(1000);
         if (nodeUO) {
@@ -2089,8 +1999,6 @@ function getVideoPlayerNumberInfo() {
 function save(obj,savaToFile) {
     if(savaToFile){
         log("将数据保存到文件")
-        
-        
 
         let fix = 路径.文件夹.粉丝 + accountInfo.username + "@" + accountInfo.enviName;
         
@@ -2101,7 +2009,6 @@ function save(obj,savaToFile) {
             files.create(fansNameListPath)
         if(!files.isFile(fansListPath))
             files.create(fansListPath)
-
         
         files.copy(fansNameListPath, fansNameListPath+".bak");
         files.copy(fansListPath, fansListPath+".bak");
@@ -2162,10 +2069,8 @@ function 关注链接() {
     }
 
 }
-
  
 function 拿一条粉丝数据() {
-    
     
     if(!cache) var cache = {};
     if( !cache.fansFile || !cache.fileData
@@ -2173,7 +2078,6 @@ function 拿一条粉丝数据() {
         || (cache.fansFile.indexOf(accountInfo.enviName) < 0
             && cache.fansFile.indexOf(accountInfo.username) < 0)
     ){
-        
         
         let envi = accountInfo.enviName;
         
@@ -2236,7 +2140,6 @@ function 拿一条粉丝数据() {
         log("粉丝数据已缓存");
         
     }
-
     
     if(cache && cache.fansFile && cache.fileData){
         if(cache.fileData.length < 1){
@@ -2886,13 +2789,6 @@ function 联众打码_原版(username, password, img) {
 
     if ("0" == p) {
         return d.data.recognition
-        
-        
-        
-        
-        
-        
-        
     }
     log("响应码：", p, "   关注：",m,"   数据如下：");
     log(d);
@@ -3231,8 +3127,6 @@ function 初始化() {
         }
         for (let i = 1; i < data.length; i++) 
             errorEnvi.push(data[i]);
-        
-        
         let t={}
         for (let name of errorEnvi) 
             t[name]=0;
@@ -3240,6 +3134,7 @@ function 初始化() {
         for (let k in t) 
             errorEnvi.push(k);
         files.write(路径.失败环境列表,JSON.stringify(errorEnvi));
+        errorEnvi = [];
     }catch(e){
         console.verbose(e);
     }
